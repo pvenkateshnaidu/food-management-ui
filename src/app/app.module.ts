@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TableBasicDemo } from 'src/app/demo/table-basic-demo';
+
 
 // Import PrimeNG modules
 import { AccordionModule } from 'primeng/accordion';
@@ -93,16 +93,19 @@ import { AnimateModule } from 'primeng/animate';
 import { CardModule } from 'primeng/card';
 import { BlockUIModule } from 'primeng/blockui';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
-import { ProductService } from 'src/service/productservice';
+import {UserService} from "../service/user.service";
+import { FoodComponent } from './food/food.component';
+import { HomeComponent } from './home/home.component';
+import {AppRoutingModule} from "./app-routing.module";
+import {StyleClassModule} from "primeng/styleclass";
 
 @NgModule({
   imports: [
     AvatarModule,
-    BrowserModule,
-    FormsModule,
+    BrowserModule, AppRoutingModule,
+    FormsModule, BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule,
     AccordionModule,
     AutoCompleteModule,
     BadgeModule,
@@ -187,11 +190,11 @@ import { ProductService } from 'src/service/productservice';
     TreeSelectModule,
     TreeTableModule,
     AnimateModule,
-    CardModule,
-    RouterModule.forRoot([{ path: '', component: TableBasicDemo }])],
-    declarations: [ TableBasicDemo ],
-    bootstrap: [ TableBasicDemo ],
-    providers: [ ProductService ]
+    CardModule, StyleClassModule,
+  ],
+    declarations: [  FoodComponent,HomeComponent ],
+    bootstrap: [ HomeComponent ],
+    providers: [ UserService ]
 })
 
 export class AppModule {}
